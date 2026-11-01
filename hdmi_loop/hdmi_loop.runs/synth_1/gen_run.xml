@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tfgg484-2" LaunchTime="1793177700">
+  <File Type="PA-TCL" Name="hdmi_loop.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="hdmi_loop_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="hdmi_loop_reports.tcl"/>
+  <File Type="RDS-RDS" Name="hdmi_loop.vds"/>
+  <File Type="RDS-UTIL" Name="hdmi_loop_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="hdmi_loop_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="hdmi_loop.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="hdmi_loop_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="hdmi_loop_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/DRAM16XN.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/DRAM16XN.v"/>
+        <Attr Name="ImportTime" Val="1692674185"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_out/asyn_rst_syn.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_out/asyn_rst_syn.v"/>
+        <Attr Name="ImportTime" Val="1694141220"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/channelbond.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/channelbond.v"/>
+        <Attr Name="ImportTime" Val="1694141138"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/decoder.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/decoder.v"/>
+        <Attr Name="ImportTime" Val="1694411957"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/dvi_decoder.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/dvi_decoder.v"/>
+        <Attr Name="ImportTime" Val="1694141177"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_out/dvi_encoder.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_out/dvi_encoder.v"/>
+        <Attr Name="ImportTime" Val="1588823183"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_out/dvi_transmitter_top.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_out/dvi_transmitter_top.v"/>
+        <Attr Name="ImportTime" Val="1694141226"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/hdmi_hls_video.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../FPGA-project/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/hdmi_hls_video.v"/>
+        <Attr Name="ImportTime" Val="1793173731"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/hdmi_rx.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/hdmi_rx.v"/>
+        <Attr Name="ImportTime" Val="1694141182"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/hls_fifo8_24.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../FPGA-project/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/hls_fifo8_24.v"/>
+        <Attr Name="ImportTime" Val="1793173731"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/i2c_edid.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/i2c_edid.v"/>
+        <Attr Name="ImportTime" Val="1694141190"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/key_mode.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../FPGA-project/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/key_mode.v"/>
+        <Attr Name="ImportTime" Val="1793173731"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/phasealign.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/phasealign.v"/>
+        <Attr Name="ImportTime" Val="1694412084"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/selectio_1_10.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/selectio_1_10.v"/>
+        <Attr Name="ImportTime" Val="1692776410"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_out/serializer_10_to_1.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_out/serializer_10_to_1.v"/>
+        <Attr Name="ImportTime" Val="1694141230"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/syncasync.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/syncasync.v"/>
+        <Attr Name="ImportTime" Val="1692860147"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/syncbase.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/syncbase.v"/>
+        <Attr Name="ImportTime" Val="1692673057"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/tmds_clock.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/tmds_clock.v"/>
+        <Attr Name="ImportTime" Val="1694141205"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_in/tmds_decoder.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_in/tmds_decoder.v"/>
+        <Attr Name="ImportTime" Val="1694141210"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/video_delay_4lines.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../FPGA-project/DaVinci_HDMI_Three_HLS_IP_Integration_2018_3/video_delay_4lines.v"/>
+        <Attr Name="ImportTime" Val="1793173731"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/rtl/hdmi_loop.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/rtl/hdmi_loop.v"/>
+        <Attr Name="ImportTime" Val="1694141121"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/53_hdmi_loop/doc/edid.coe">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/doc/edid.coe"/>
+        <Attr Name="ImportTime" Val="1589161155"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/edid.coe">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/hls/hdmi_loop/hdmi_loop.srcs/sources_1/edid.coe"/>
+        <Attr Name="ImportTime" Val="1589161155"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hls/hdmi_loop/archive_project_summary.txt">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/hls/hdmi_loop/archive_project_summary.txt"/>
+        <Attr Name="ImportTime" Val="1760449768"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hls/hdmi_colorbar/hdmi_loop/hdmi_loop.srcs/sources_1/edid.coe">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/hls/hdmi_colorbar/hdmi_loop/hdmi_loop.srcs/sources_1/edid.coe"/>
+        <Attr Name="ImportTime" Val="1589161155"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="hdmi_loop"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/hdmi_loop.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../fpga_work/53_hdmi_loop/prj/hdmi_loop.srcs/constrs_1/new/hdmi_loop.xdc"/>
+        <Attr Name="ImportTime" Val="1692681101"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="mmcm"/>
+  <BlockFileSet Type="BlockSrcs" Name="gray8_gauss2d_3x3_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="edid_rom"/>
+  <BlockFileSet Type="BlockSrcs" Name="rgb2gray_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="sharpen3x3_0"/>
+</GenRun>

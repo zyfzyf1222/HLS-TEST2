@@ -1,0 +1,8 @@
+sv work "glbl.v"
+sv xil_defaultlib "AESL_autofifo_dst_V_V.v"
+sv xil_defaultlib "AESL_autofifo_src_V_V.v"
+sv xil_defaultlib "gray8_gauss2d_3x3.autotb.v"
+sv xil_defaultlib "gray8_gauss2d_3x3.v"
+sv xil_defaultlib "gray8_gauss2d_3x3bkb.v"
+sv xil_defaultlib "gray8_gauss2d_3x3dEe.v"
+

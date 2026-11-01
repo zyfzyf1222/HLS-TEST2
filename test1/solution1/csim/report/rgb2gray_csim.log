@@ -1,0 +1,10 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../FPGA_HLS_Gray_Sharpen_1080p/rgb2gray/rgb2gray_tb.cpp in debug mode
+   Compiling ../../../../FPGA_HLS_Gray_Sharpen_1080p/rgb2gray/rgb2gray.cpp in debug mode
+   Generating csim.exe
+Total pixels: 2073600
+Mismatch pixels: 0
+TEST PASS
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

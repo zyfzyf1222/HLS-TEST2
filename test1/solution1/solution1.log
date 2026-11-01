@@ -1,0 +1,123 @@
+==============================================================
+File generated on Wed Oct 28 15:06:30 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_schedule -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_schedule -relax_ii_for_timing=0
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Wed Oct 28 15:06:51 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [HLS 200-10] Analyzing design file 'FPGA_HLS_Gray_Sharpen_1080p/rgb2gray/rgb2gray.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 104.430 ; gain = 19.309
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 104.430 ; gain = 19.309
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 108.867 ; gain = 23.746
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 111.109 ; gain = 25.988
+INFO: [XFORM 203-11] Balancing expressions in function 'rgb2gray' (FPGA_HLS_Gray_Sharpen_1080p/rgb2gray/rgb2gray.cpp:4)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 133.996 ; gain = 48.875
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (FPGA_HLS_Gray_Sharpen_1080p/rgb2gray/rgb2gray.cpp:15:20) in function 'rgb2gray'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 134.195 ; gain = 49.074
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'rgb2gray' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rgb2gray' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 5.
+WARNING: [SCHED 204-21] Estimated clock period (6.35ns) exceeds the target (target clock period: 6.734ns, clock uncertainty: 0.842ns, effective delay budget: 5.892ns).
+WARNING: [SCHED 204-21] The critical path in module 'rgb2gray' consists of the following:
+	wire read on port 'height_V' [10]  (0 ns)
+	'mul' operation of DSP[19] ('bound') [19]  (6.35 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.659 seconds; current allocated memory: 85.417 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.028 seconds; current allocated memory: 85.599 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rgb2gray' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/src_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/dst_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/width_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'rgb2gray/height_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'rgb2gray' to 'ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'rgb2gray_mul_mul_12ns_12ns_24_1_1' to 'rgb2gray_mul_mul_bkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'rgb2gray_mac_muladd_8ns_8ns_16ns_16_1_1' to 'rgb2gray_mac_mulacud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'rgb2gray_mac_muladd_6ns_8ns_9ns_13_1_1' to 'rgb2gray_mac_muladEe' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'rgb2gray_mac_mulacud': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'rgb2gray_mac_muladEe': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'rgb2gray_mul_mul_bkb': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rgb2gray'.
+INFO: [HLS 200-111]  Elapsed time: 0.037 seconds; current allocated memory: 85.966 MB.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 135.340 ; gain = 50.219
+INFO: [SYSC 207-301] Generating SystemC RTL for rgb2gray.
+INFO: [VHDL 208-304] Generating VHDL RTL for rgb2gray.
+INFO: [VLOG 209-307] Generating Verilog RTL for rgb2gray.
+INFO: [HLS 200-112] Total elapsed time: 6.188 seconds; peak allocated memory: 85.966 MB.
+==============================================================
+File generated on Wed Oct 28 15:09:27 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+==============================================================
+File generated on Wed Oct 28 15:10:34 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+ERROR: [IMPL 213-28] Failed to generate IP.

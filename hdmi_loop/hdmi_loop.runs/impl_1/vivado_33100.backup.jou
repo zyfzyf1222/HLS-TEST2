@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Oct 28 16:20:21 2026
+# Process ID: 33100
+# Current directory: E:/gauss_src/hdmi_loop/hdmi_loop.runs/impl_1
+# Command line: vivado.exe -log hdmi_loop.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source hdmi_loop.tcl -notrace
+# Log file: E:/gauss_src/hdmi_loop/hdmi_loop.runs/impl_1/hdmi_loop.vdi
+# Journal file: E:/gauss_src/hdmi_loop/hdmi_loop.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source hdmi_loop.tcl -notrace

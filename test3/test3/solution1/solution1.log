@@ -1,0 +1,514 @@
+==============================================================
+File generated on Wed Oct 28 15:18:22 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_schedule -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_schedule -relax_ii_for_timing=0
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Wed Oct 28 15:18:43 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [HLS 200-10] Analyzing design file '../sharpen3x3/sharpen3x3.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.445 ; gain = 19.004
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 104.445 ; gain = 19.004
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 107.758 ; gain = 22.316
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 109.102 ; gain = 23.660
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 133.133 ; gain = 47.691
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-1' (../sharpen3x3/sharpen3x3.cpp:33:21) in function 'sharpen3x3'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev0.V'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'prev1.V'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 133.133 ; gain = 47.691
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'sharpen3x3' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+WARNING: [SCHED 204-69] Unable to schedule 'store' operation (../sharpen3x3/sharpen3x3.cpp:56) of variable 'center_row.V', ../sharpen3x3/sharpen3x3.cpp:54 on array 'prev1_V' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'prev1_V'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 4.
+WARNING: [SCHED 204-21] Estimated clock period (6.35ns) exceeds the target (target clock period: 6.734ns, clock uncertainty: 0.842ns, effective delay budget: 5.892ns).
+WARNING: [SCHED 204-21] The critical path in module 'sharpen3x3' consists of the following:
+	wire read on port 'height_V' [12]  (0 ns)
+	'add' operation of DSP[27] ('tmp_3', ../sharpen3x3/sharpen3x3.cpp:33) [24]  (0 ns)
+	'mul' operation of DSP[27] ('bound', ../sharpen3x3/sharpen3x3.cpp:33) [27]  (6.35 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 4.98 seconds; current allocated memory: 83.368 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.044 seconds; current allocated memory: 83.848 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/src_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/dst_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/width_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/height_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'sharpen3x3' to 'ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_am_addmul_12ns_1ns_13ns_26_1_1' to 'sharpen3x3_am_addbkb' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'sharpen3x3_am_addbkb': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sharpen3x3'.
+INFO: [HLS 200-111]  Elapsed time: 0.074 seconds; current allocated memory: 84.735 MB.
+INFO: [RTMG 210-278] Implementing memory 'sharpen3x3_prev0_V_ram (RAM_2P_BRAM)' using block RAMs with power-on initialization.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 136.047 ; gain = 50.605
+INFO: [SYSC 207-301] Generating SystemC RTL for sharpen3x3.
+INFO: [VHDL 208-304] Generating VHDL RTL for sharpen3x3.
+INFO: [VLOG 209-307] Generating Verilog RTL for sharpen3x3.
+INFO: [HLS 200-112] Total elapsed time: 5.751 seconds; peak allocated memory: 84.735 MB.
+==============================================================
+File generated on Wed Oct 28 15:25:14 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Wed Oct 28 15:25:27 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [HLS 200-10] Analyzing design file '../sharpen3x3/sharpen3x3.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 104.555 ; gain = 19.613
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 104.555 ; gain = 19.613
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::shift_right' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:426).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::insert' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:428).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::insert' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:431).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::getval' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:431).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::shift_down' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:433).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::insert_bottom' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:434).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:46).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::getval' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' (../sharpen3x3/ht_video_mem.h:444).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:49).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:50).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:51).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:52).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:53).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 107.965 ; gain = 23.023
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::set_size' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:27) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 109.703 ; gain = 24.762
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'sharpen_col' (../sharpen3x3/sharpen3x3.cpp:34) in function 'sharpen3x3' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (../sharpen3x3/ht_video_mem.h:72) in function 'sharpen3x3' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1.1' (../sharpen3x3/ht_video_mem.h:74) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (../sharpen3x3/ht_video_mem.h:429) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.3' (../sharpen3x3/ht_video_mem.h:235) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [XFORM 203-101] Partitioning array 'wlb.lb.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlb.w.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlb.w.val.V'  in dimension 2 completely.
+INFO: [XFORM 203-602] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::set_size' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:27) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../sharpen3x3/ht_video_mem.h:76:2) to (../sharpen3x3/sharpen3x3.cpp:67:13) in function 'sharpen3x3'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 133.168 ; gain = 48.227
+INFO: [XFORM 203-541] Flattening a loop nest 'sharpen_row' (../sharpen3x3/sharpen3x3.cpp:31:6) in function 'sharpen3x3'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.xsize.V'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.1'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 133.637 ; gain = 48.695
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'sharpen3x3' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'sharpen_row_sharpen_col'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+WARNING: [SCHED 204-21] Estimated clock period (6.35ns) exceeds the target (target clock period: 6.734ns, clock uncertainty: 0.842ns, effective delay budget: 5.892ns).
+WARNING: [SCHED 204-21] The critical path in module 'sharpen3x3' consists of the following:
+	wire read on port 'height_V' [24]  (0 ns)
+	'add' operation of DSP[40] ('tmp_3', ../sharpen3x3/sharpen3x3.cpp:30) [36]  (0 ns)
+	'mul' operation of DSP[40] ('bound', ../sharpen3x3/sharpen3x3.cpp:30) [40]  (6.35 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.281 seconds; current allocated memory: 83.811 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.042 seconds; current allocated memory: 84.218 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/src_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/dst_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/width_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/height_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'sharpen3x3' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'wlb_xsize_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'col' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_0' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_0' to 'sharpen3x3_wlb_lbbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_1' to 'sharpen3x3_wlb_lbcud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_2' to 'sharpen3x3_wlb_lbdEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_am_addmul_12ns_1ns_13ns_26_1_1' to 'sharpen3x3_am_addeOg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'sharpen3x3_am_addeOg': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sharpen3x3'.
+INFO: [HLS 200-111]  Elapsed time: 0.085 seconds; current allocated memory: 85.026 MB.
+INFO: [RTMG 210-278] Implementing memory 'sharpen3x3_wlb_lbbkb_ram (RAM)' using block RAMs with power-on initialization.
+INFO: [RTMG 210-278] Implementing memory 'sharpen3x3_wlb_lbdEe_ram (RAM)' using block RAMs with power-on initialization.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 135.891 ; gain = 50.949
+INFO: [SYSC 207-301] Generating SystemC RTL for sharpen3x3.
+INFO: [VHDL 208-304] Generating VHDL RTL for sharpen3x3.
+INFO: [VLOG 209-307] Generating Verilog RTL for sharpen3x3.
+INFO: [HLS 200-112] Total elapsed time: 6.037 seconds; peak allocated memory: 85.026 MB.
+==============================================================
+File generated on Wed Oct 28 15:26:24 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [HLS 200-10] Analyzing design file '../sharpen3x3/sharpen3x3.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 104.496 ; gain = 19.621
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 104.496 ; gain = 19.621
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::shift_right' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:426).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::insert' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:428).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::insert' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:431).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::getval' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:431).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::shift_down' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:433).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::insert_bottom' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:434).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:46).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::getval' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' (../sharpen3x3/ht_video_mem.h:444).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:49).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:50).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:51).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:52).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:53).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 107.953 ; gain = 23.078
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::set_size' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:27) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 109.531 ; gain = 24.656
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'sharpen_col' (../sharpen3x3/sharpen3x3.cpp:34) in function 'sharpen3x3' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (../sharpen3x3/ht_video_mem.h:72) in function 'sharpen3x3' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1.1' (../sharpen3x3/ht_video_mem.h:74) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (../sharpen3x3/ht_video_mem.h:429) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.3' (../sharpen3x3/ht_video_mem.h:235) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [XFORM 203-101] Partitioning array 'wlb.lb.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlb.w.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlb.w.val.V'  in dimension 2 completely.
+INFO: [XFORM 203-602] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::set_size' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:27) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../sharpen3x3/ht_video_mem.h:76:2) to (../sharpen3x3/sharpen3x3.cpp:67:13) in function 'sharpen3x3'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 133.629 ; gain = 48.754
+INFO: [XFORM 203-541] Flattening a loop nest 'sharpen_row' (../sharpen3x3/sharpen3x3.cpp:31:6) in function 'sharpen3x3'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.xsize.V'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.1'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 134.078 ; gain = 49.203
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'sharpen3x3' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'sharpen_row_sharpen_col'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+WARNING: [SCHED 204-21] Estimated clock period (6.35ns) exceeds the target (target clock period: 6.734ns, clock uncertainty: 0.842ns, effective delay budget: 5.892ns).
+WARNING: [SCHED 204-21] The critical path in module 'sharpen3x3' consists of the following:
+	wire read on port 'height_V' [24]  (0 ns)
+	'add' operation of DSP[40] ('tmp_3', ../sharpen3x3/sharpen3x3.cpp:30) [36]  (0 ns)
+	'mul' operation of DSP[40] ('bound', ../sharpen3x3/sharpen3x3.cpp:30) [40]  (6.35 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 5.305 seconds; current allocated memory: 83.811 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.079 seconds; current allocated memory: 84.218 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/src_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/dst_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/width_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/height_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'sharpen3x3' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'wlb_xsize_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'col' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_0' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_0' to 'sharpen3x3_wlb_lbbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_1' to 'sharpen3x3_wlb_lbcud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_2' to 'sharpen3x3_wlb_lbdEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_am_addmul_12ns_1ns_13ns_26_1_1' to 'sharpen3x3_am_addeOg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'sharpen3x3_am_addeOg': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sharpen3x3'.
+INFO: [HLS 200-111]  Elapsed time: 0.081 seconds; current allocated memory: 85.057 MB.
+INFO: [RTMG 210-278] Implementing memory 'sharpen3x3_wlb_lbbkb_ram (RAM)' using block RAMs with power-on initialization.
+INFO: [RTMG 210-278] Implementing memory 'sharpen3x3_wlb_lbdEe_ram (RAM)' using block RAMs with power-on initialization.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 135.973 ; gain = 51.098
+INFO: [SYSC 207-301] Generating SystemC RTL for sharpen3x3.
+INFO: [VHDL 208-304] Generating VHDL RTL for sharpen3x3.
+INFO: [VLOG 209-307] Generating Verilog RTL for sharpen3x3.
+INFO: [HLS 200-112] Total elapsed time: 6.085 seconds; peak allocated memory: 85.057 MB.
+==============================================================
+File generated on Wed Oct 28 15:26:38 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+==============================================================
+File generated on Wed Oct 28 15:27:45 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+ERROR: [IMPL 213-28] Failed to generate IP.
+==============================================================
+File generated on Wed Oct 28 17:49:17 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -optimization_level' configuration: config_bind -effort=medium
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+==============================================================
+File generated on Thu Oct 29 17:32:26 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+==============================================================
+File generated on Thu Oct 29 17:40:22 +0800 2026
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.842ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a35tfgg484-2'
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_sdx -optimization_level=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.734ns.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty default
+INFO: [HLS 200-10] Analyzing design file '../sharpen3x3/sharpen3x3.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 103.754 ; gain = 18.809
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 103.754 ; gain = 18.809
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::shift_right' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:426).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::insert' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:428).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::insert' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:431).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::getval' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:431).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::shift_down' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:433).
+INFO: [XFORM 203-603] Inlining function 'HT_LineBuffer<3, 2048, ap_uint<8>, 0>::insert_bottom' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' (../sharpen3x3/ht_video_mem.h:434).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::insert' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:46).
+INFO: [XFORM 203-603] Inlining function 'HT_Window<3, 3, ap_uint<8> >::getval' into 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' (../sharpen3x3/ht_video_mem.h:444).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:49).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:50).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:51).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:52).
+INFO: [XFORM 203-603] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::getval' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:53).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 108.250 ; gain = 23.305
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::set_size' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:27) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 109.586 ; gain = 24.641
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'sharpen_col' (../sharpen3x3/sharpen3x3.cpp:34) in function 'sharpen3x3' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (../sharpen3x3/ht_video_mem.h:72) in function 'sharpen3x3' completely with a factor of 3.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1.1' (../sharpen3x3/ht_video_mem.h:74) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.2' (../sharpen3x3/ht_video_mem.h:429) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.3' (../sharpen3x3/ht_video_mem.h:235) in function 'sharpen3x3' completely with a factor of 2.
+INFO: [XFORM 203-101] Partitioning array 'wlb.lb.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlb.w.val.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlb.w.val.V'  in dimension 2 completely.
+INFO: [XFORM 203-602] Inlining function 'HT_window_with_linebuffer<3, 3, 2048, ap_uint<8> >::set_size' into 'sharpen3x3' (../sharpen3x3/sharpen3x3.cpp:27) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (../sharpen3x3/ht_video_mem.h:76:2) to (../sharpen3x3/sharpen3x3.cpp:67:13) in function 'sharpen3x3'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 133.047 ; gain = 48.102
+INFO: [XFORM 203-541] Flattening a loop nest 'sharpen_row' (../sharpen3x3/sharpen3x3.cpp:31:6) in function 'sharpen3x3'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.1'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.2'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.0'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.xsize.V'.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 133.770 ; gain = 48.824
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'sharpen3x3' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'sharpen_row_sharpen_col'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+WARNING: [SCHED 204-21] Estimated clock period (6.35ns) exceeds the target (target clock period: 6.734ns, clock uncertainty: 0.842ns, effective delay budget: 5.892ns).
+WARNING: [SCHED 204-21] The critical path in module 'sharpen3x3' consists of the following:
+	wire read on port 'height_V' [24]  (0 ns)
+	'add' operation of DSP[40] ('tmp_3', ../sharpen3x3/sharpen3x3.cpp:30) [36]  (0 ns)
+	'mul' operation of DSP[40] ('bound', ../sharpen3x3/sharpen3x3.cpp:30) [40]  (6.35 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 6.562 seconds; current allocated memory: 83.842 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.098 seconds; current allocated memory: 84.286 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sharpen3x3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/src_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/dst_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/width_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sharpen3x3/height_V' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'sharpen3x3' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'wlb_xsize_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'col' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_0' is power-on initialization.
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_0' to 'sharpen3x3_wlb_lbbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_1' to 'sharpen3x3_wlb_lbcud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_wlb_lb_val_V_2' to 'sharpen3x3_wlb_lbdEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'sharpen3x3_am_addmul_12ns_1ns_13ns_26_1_1' to 'sharpen3x3_am_addeOg' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'sharpen3x3_am_addeOg': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sharpen3x3'.
+INFO: [HLS 200-111]  Elapsed time: 0.215 seconds; current allocated memory: 85.072 MB.
+INFO: [RTMG 210-278] Implementing memory 'sharpen3x3_wlb_lbbkb_ram (RAM)' using block RAMs with power-on initialization.
+INFO: [RTMG 210-278] Implementing memory 'sharpen3x3_wlb_lbdEe_ram (RAM)' using block RAMs with power-on initialization.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 136.020 ; gain = 51.074
+INFO: [SYSC 207-301] Generating SystemC RTL for sharpen3x3.
+INFO: [VHDL 208-304] Generating VHDL RTL for sharpen3x3.
+INFO: [VLOG 209-307] Generating Verilog RTL for sharpen3x3.
+INFO: [HLS 200-112] Total elapsed time: 8.066 seconds; peak allocated memory: 85.072 MB.

@@ -1,0 +1,296 @@
+
+
+================================================================
+== Vivado HLS Report for 'sharpen3x3'
+================================================================
+* Date:           Thu Oct 29 17:40:28 2026
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        test3
+* Solution:       solution1
+* Product family: artix7
+* Target device:  xc7a35tfgg484-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   6.73|     6.350|        0.84|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+----------+-----+----------+---------+
+    |     Latency    |    Interval    | Pipeline|
+    | min |    max   | min |    max   |   Type  |
+    +-----+----------+-----+----------+---------+
+    |    6|  16777221|    6|  16777221|   none  |
+    +-----+----------+-----+----------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------------+-----+----------+----------+-----------+-----------+--------------+----------+
+        |                           |     Latency    | Iteration|  Initiation Interval  |     Trip     |          |
+        |         Loop Name         | min |    max   |  Latency |  achieved |   target  |     Count    | Pipelined|
+        +---------------------------+-----+----------+----------+-----------+-----------+--------------+----------+
+        |- sharpen_row_sharpen_col  |    3|  16777218|         4|          1|          1| 1 ~ 16777216 |    yes   |
+        +---------------------------+-----+----------+----------+-----------+-----------+--------------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 7
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 4, States = { 3 4 5 6 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	7  / (exitcond_flatten)
+	4  / (!exitcond_flatten)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	3  / true
+7 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.77>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%width_V_read = call i12 @_ssdm_op_Read.ap_none.i12(i12 %width_V)"   --->   Operation 8 'read' 'width_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_cast3 = zext i12 %width_V_read to i13" [../sharpen3x3/sharpen3x3.cpp:27]   --->   Operation 9 'zext' 'tmp_cast3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.77ns)   --->   "%xval_assign = add i13 %tmp_cast3, 1" [../sharpen3x3/sharpen3x3.cpp:27]   --->   Operation 10 'add' 'xval_assign' <Predicate = true> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (1.77ns)   --->   "%tmp_i = add i12 %width_V_read, 1" [../sharpen3x3/ht_video_mem.h:416->../sharpen3x3/sharpen3x3.cpp:27]   --->   Operation 11 'add' 'tmp_i' <Predicate = true> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "store i12 %tmp_i, i12* @wlb_xsize_V, align 2" [../sharpen3x3/ht_video_mem.h:416->../sharpen3x3/sharpen3x3.cpp:27]   --->   Operation 12 'store' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 6.35>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %src_V_V), !map !56"   --->   Operation 13 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %dst_V_V), !map !62"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i12 %width_V), !map !66"   --->   Operation 15 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i12 %height_V), !map !72"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @sharpen3x3_str) nounwind"   --->   Operation 17 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%height_V_read = call i12 @_ssdm_op_Read.ap_none.i12(i12 %height_V)"   --->   Operation 18 'read' 'height_V_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_V_V, [8 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [../sharpen3x3/sharpen3x3.cpp:13]   --->   Operation 19 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %dst_V_V, [8 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [../sharpen3x3/sharpen3x3.cpp:14]   --->   Operation 20 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i12 %width_V, [8 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [../sharpen3x3/sharpen3x3.cpp:15]   --->   Operation 21 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i12 %height_V, [8 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [../sharpen3x3/sharpen3x3.cpp:16]   --->   Operation 22 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [11 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [../sharpen3x3/sharpen3x3.cpp:17]   --->   Operation 23 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_2_cast2 = zext i12 %height_V_read to i13" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 24 'zext' 'tmp_2_cast2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns) (grouped into DSP with root node bound)   --->   "%tmp_3 = add i13 %tmp_2_cast2, 1" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 25 'add' 'tmp_3' <Predicate = true> <Delay = 0.00> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 6.35> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%col_load = load i32* @col, align 4" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 26 'load' 'col_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (0.00ns) (grouped into DSP with root node bound)   --->   "%cast = zext i13 %tmp_3 to i26" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 27 'zext' 'cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%cast1 = zext i13 %xval_assign to i26" [../sharpen3x3/sharpen3x3.cpp:27]   --->   Operation 28 'zext' 'cast1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (6.35ns) (root node of the DSP)   --->   "%bound = mul i26 %cast, %cast1" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 29 'mul' 'bound' <Predicate = true> <Delay = 6.35> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 6.35> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 30 [1/1] (1.35ns)   --->   "br label %0" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 30 'br' <Predicate = true> <Delay = 1.35>
+
+State 3 <SV = 2> <Delay = 5.11>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i25 [ 0, %codeRepl ], [ %indvar_flatten_next, %._crit_edge32 ]"   --->   Operation 31 'phi' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%row = phi i13 [ 0, %codeRepl ], [ %row_mid2, %._crit_edge32 ]" [../sharpen3x3/sharpen3x3.cpp:33]   --->   Operation 32 'phi' 'row' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%col_flag_1 = phi i1 [ false, %codeRepl ], [ true, %._crit_edge32 ]"   --->   Operation 33 'phi' 'col_flag_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%col_assign = phi i32 [ %col_load, %codeRepl ], [ %i_op_assign_s, %._crit_edge32 ]" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 34 'phi' 'col_assign' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%col_1_1 = phi i13 [ 0, %codeRepl ], [ %col_1, %._crit_edge32 ]"   --->   Operation 35 'phi' 'col_1_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%indvar_flatten_cast = zext i25 %indvar_flatten to i26"   --->   Operation 36 'zext' 'indvar_flatten_cast' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (1.70ns)   --->   "%tmp_s = icmp ult i13 %row, %tmp_2_cast2" [../sharpen3x3/sharpen3x3.cpp:39]   --->   Operation 37 'icmp' 'tmp_s' <Predicate = true> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 38 [1/1] (2.06ns)   --->   "%exitcond_flatten = icmp eq i26 %indvar_flatten_cast, %bound" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 38 'icmp' 'exitcond_flatten' <Predicate = true> <Delay = 2.06> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 39 [1/1] (2.03ns)   --->   "%indvar_flatten_next = add i25 %indvar_flatten, 1"   --->   Operation 39 'add' 'indvar_flatten_next' <Predicate = true> <Delay = 2.03> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %3, label %.reset" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 40 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (1.70ns)   --->   "%exitcond9 = icmp eq i13 %col_1_1, %xval_assign" [../sharpen3x3/sharpen3x3.cpp:33]   --->   Operation 41 'icmp' 'exitcond9' <Predicate = (!exitcond_flatten)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 42 [1/1] (0.60ns)   --->   "%col_mid2 = select i1 %exitcond9, i13 0, i13 %col_1_1" [../sharpen3x3/sharpen3x3.cpp:33]   --->   Operation 42 'select' 'col_mid2' <Predicate = (!exitcond_flatten)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 43 [1/1] (1.79ns)   --->   "%row_s = add i13 %row, 1" [../sharpen3x3/sharpen3x3.cpp:30]   --->   Operation 43 'add' 'row_s' <Predicate = (!exitcond_flatten)> <Delay = 1.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 44 [1/1] (1.70ns)   --->   "%tmp_5_mid1 = icmp ne i13 %row_s, 0" [../sharpen3x3/sharpen3x3.cpp:67]   --->   Operation 44 'icmp' 'tmp_5_mid1' <Predicate = (!exitcond_flatten)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 45 [1/1] (1.70ns)   --->   "%tmp_5 = icmp ne i13 %row, 0" [../sharpen3x3/sharpen3x3.cpp:67]   --->   Operation 45 'icmp' 'tmp_5' <Predicate = (!exitcond_flatten)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 46 [1/1] (0.81ns)   --->   "%tmp_5_mid2 = select i1 %exitcond9, i1 %tmp_5_mid1, i1 %tmp_5" [../sharpen3x3/sharpen3x3.cpp:67]   --->   Operation 46 'select' 'tmp_5_mid2' <Predicate = (!exitcond_flatten)> <Delay = 0.81> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 47 [1/1] (1.70ns)   --->   "%tmp_mid1 = icmp ult i13 %row_s, %tmp_2_cast2" [../sharpen3x3/sharpen3x3.cpp:39]   --->   Operation 47 'icmp' 'tmp_mid1' <Predicate = (!exitcond_flatten)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 48 [1/1] (0.00ns) (grouped into LUT with out node or_cond1)   --->   "%tmp_mid2 = select i1 %exitcond9, i1 %tmp_mid1, i1 %tmp_s" [../sharpen3x3/sharpen3x3.cpp:39]   --->   Operation 48 'select' 'tmp_mid2' <Predicate = (!exitcond_flatten)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 49 [1/1] (0.60ns)   --->   "%row_mid2 = select i1 %exitcond9, i13 %row_s, i13 %row" [../sharpen3x3/sharpen3x3.cpp:33]   --->   Operation 49 'select' 'row_mid2' <Predicate = (!exitcond_flatten)> <Delay = 0.60> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (1.70ns)   --->   "%tmp_7 = icmp ult i13 %col_mid2, %tmp_cast3" [../sharpen3x3/sharpen3x3.cpp:40]   --->   Operation 50 'icmp' 'tmp_7' <Predicate = (!exitcond_flatten)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 51 [1/1] (0.81ns) (out node of the LUT)   --->   "%or_cond1 = and i1 %tmp_mid2, %tmp_7" [../sharpen3x3/sharpen3x3.cpp:40]   --->   Operation 51 'and' 'or_cond1' <Predicate = (!exitcond_flatten)> <Delay = 0.81> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%tmp_1 = sext i32 %col_assign to i64" [../sharpen3x3/ht_video_mem.h:281->../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 52 'sext' 'tmp_1' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_0_addr = getelementptr [2048 x i8]* @wlb_lb_val_V_0, i64 0, i64 %tmp_1" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 53 'getelementptr' 'wlb_lb_val_V_0_addr' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 54 [2/2] (2.77ns)   --->   "%wlb_lb_val_V_0_load = load i8* %wlb_lb_val_V_0_addr, align 1" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 54 'load' 'wlb_lb_val_V_0_load' <Predicate = (!exitcond_flatten)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_1_addr = getelementptr [2048 x i8]* @wlb_lb_val_V_1, i64 0, i64 %tmp_1" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 55 'getelementptr' 'wlb_lb_val_V_1_addr' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 56 [2/2] (2.77ns)   --->   "%wlb_lb_val_V_1_load = load i8* %wlb_lb_val_V_1_addr, align 1" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 56 'load' 'wlb_lb_val_V_1_load' <Predicate = (!exitcond_flatten)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_3 : Operation 57 [1/1] (2.18ns)   --->   "%i_op_assign = add nsw i32 1, %col_assign" [../sharpen3x3/ht_video_mem.h:435->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 57 'add' 'i_op_assign' <Predicate = (!exitcond_flatten)> <Delay = 2.18> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "%wlb_xsize_V_load = load i12* @wlb_xsize_V, align 2" [../sharpen3x3/ht_video_mem.h:436->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 58 'load' 'wlb_xsize_V_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 59 [1/1] (0.00ns)   --->   "%tmp_8 = zext i12 %wlb_xsize_V_load to i32" [../sharpen3x3/ht_video_mem.h:436->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 59 'zext' 'tmp_8' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 60 [1/1] (2.11ns)   --->   "%tmp_9 = icmp slt i32 %i_op_assign, %tmp_8" [../sharpen3x3/ht_video_mem.h:436->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 60 'icmp' 'tmp_9' <Predicate = (!exitcond_flatten)> <Delay = 2.11> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 61 [1/1] (0.77ns)   --->   "%i_op_assign_s = select i1 %tmp_9, i32 %i_op_assign, i32 0" [../sharpen3x3/ht_video_mem.h:436->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 61 'select' 'i_op_assign_s' <Predicate = (!exitcond_flatten)> <Delay = 0.77> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 62 [1/1] (1.70ns)   --->   "%tmp_16 = icmp ne i13 %col_mid2, 0" [../sharpen3x3/sharpen3x3.cpp:67]   --->   Operation 62 'icmp' 'tmp_16' <Predicate = (!exitcond_flatten)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 63 [1/1] (0.80ns)   --->   "%or_cond = and i1 %tmp_5_mid2, %tmp_16" [../sharpen3x3/sharpen3x3.cpp:67]   --->   Operation 63 'and' 'or_cond' <Predicate = (!exitcond_flatten)> <Delay = 0.80> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %or_cond, label %2, label %._crit_edge32" [../sharpen3x3/sharpen3x3.cpp:67]   --->   Operation 64 'br' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_3 : Operation 65 [1/1] (1.79ns)   --->   "%col_1 = add i13 %col_mid2, 1" [../sharpen3x3/sharpen3x3.cpp:33]   --->   Operation 65 'add' 'col_1' <Predicate = (!exitcond_flatten)> <Delay = 1.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 5.54>
+ST_4 : Operation 66 [1/1] (1.35ns)   --->   "br i1 %or_cond1, label %1, label %._crit_edge29_ifconv" [../sharpen3x3/sharpen3x3.cpp:39]   --->   Operation 66 'br' <Predicate = (!exitcond_flatten)> <Delay = 1.35>
+ST_4 : Operation 67 [1/1] (2.94ns)   --->   "%tmp_V_3 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %src_V_V)" [../sharpen3x3/sharpen3x3.cpp:42]   --->   Operation 67 'read' 'tmp_V_3' <Predicate = (!exitcond_flatten & or_cond1)> <Delay = 2.94> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.18> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 0> <FIFO>
+ST_4 : Operation 68 [1/1] (1.35ns)   --->   "br label %._crit_edge29_ifconv" [../sharpen3x3/sharpen3x3.cpp:43]   --->   Operation 68 'br' <Predicate = (!exitcond_flatten & or_cond1)> <Delay = 1.35>
+ST_4 : Operation 69 [1/1] (0.00ns)   --->   "%wlb_w_val_V_0_1_load = load i8* @wlb_w_val_V_0_1, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 69 'load' 'wlb_w_val_V_0_1_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 70 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_0_1_load, i8* @wlb_w_val_V_0_2, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 70 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 71 [1/1] (0.00ns)   --->   "%wlb_w_val_V_0_0_load = load i8* @wlb_w_val_V_0_0, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 71 'load' 'wlb_w_val_V_0_0_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 72 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_0_0_load, i8* @wlb_w_val_V_0_1, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 72 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 73 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_0_load = load i8* @wlb_w_val_V_1_0, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 73 'load' 'wlb_w_val_V_1_0_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_1_load = load i8* @wlb_w_val_V_2_1, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 74 'load' 'wlb_w_val_V_2_1_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_2_1_load, i8* @wlb_w_val_V_2_2, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 75 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 76 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_0_load = load i8* @wlb_w_val_V_2_0, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 76 'load' 'wlb_w_val_V_2_0_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 77 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_2_0_load, i8* @wlb_w_val_V_2_1, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 77 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 78 [1/2] (2.77ns)   --->   "%wlb_lb_val_V_0_load = load i8* %wlb_lb_val_V_0_addr, align 1" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 78 'load' 'wlb_lb_val_V_0_load' <Predicate = (!exitcond_flatten)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "store i8 %wlb_lb_val_V_0_load, i8* @wlb_w_val_V_1_0, align 1" [../sharpen3x3/ht_video_mem.h:119->../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 79 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 80 [1/2] (2.77ns)   --->   "%wlb_lb_val_V_1_load = load i8* %wlb_lb_val_V_1_addr, align 1" [../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 80 'load' 'wlb_lb_val_V_1_load' <Predicate = (!exitcond_flatten)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 81 [1/1] (0.00ns)   --->   "store i8 %wlb_lb_val_V_1_load, i8* @wlb_w_val_V_2_0, align 1" [../sharpen3x3/ht_video_mem.h:119->../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 81 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 82 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_2_addr = getelementptr [2048 x i8]* @wlb_lb_val_V_2, i64 0, i64 %tmp_1" [../sharpen3x3/ht_video_mem.h:237->../sharpen3x3/ht_video_mem.h:433->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 82 'getelementptr' 'wlb_lb_val_V_2_addr' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 83 [1/1] (2.77ns)   --->   "store i8 %wlb_lb_val_V_1_load, i8* %wlb_lb_val_V_2_addr, align 1" [../sharpen3x3/ht_video_mem.h:237->../sharpen3x3/ht_video_mem.h:433->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 83 'store' <Predicate = (!exitcond_flatten)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 84 [1/1] (2.77ns)   --->   "store i8 %wlb_lb_val_V_0_load, i8* %wlb_lb_val_V_1_addr, align 1" [../sharpen3x3/ht_video_mem.h:237->../sharpen3x3/ht_video_mem.h:433->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 84 'store' <Predicate = (!exitcond_flatten)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "%center_cast1 = zext i8 %wlb_w_val_V_1_0_load to i11" [../sharpen3x3/sharpen3x3.cpp:49]   --->   Operation 85 'zext' 'center_cast1' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 86 [1/1] (0.00ns)   --->   "%top_cast = zext i8 %wlb_w_val_V_2_0_load to i12" [../sharpen3x3/sharpen3x3.cpp:50]   --->   Operation 86 'zext' 'top_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 87 [1/1] (0.00ns)   --->   "%bottom_cast = zext i8 %wlb_w_val_V_0_0_load to i12" [../sharpen3x3/sharpen3x3.cpp:51]   --->   Operation 87 'zext' 'bottom_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 88 [1/1] (0.00ns)   --->   "%tmp_2 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %wlb_w_val_V_1_0_load, i2 0)" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 88 'bitconcatenate' 'tmp_2' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 89 [1/1] (0.00ns)   --->   "%tmp_10_cast = zext i10 %tmp_2 to i11" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 89 'zext' 'tmp_10_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 90 [1/1] (1.74ns)   --->   "%tmp_4 = add i11 %center_cast1, %tmp_10_cast" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 90 'add' 'tmp_4' <Predicate = (!exitcond_flatten)> <Delay = 1.74> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "%tmp_11_cast = zext i11 %tmp_4 to i12" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 91 'zext' 'tmp_11_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_4 : Operation 92 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp_10 = sub i12 %tmp_11_cast, %top_cast" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 92 'sub' 'tmp_10' <Predicate = (!exitcond_flatten)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.58> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 93 [1/1] (3.16ns) (root node of TernaryAdder)   --->   "%tmp_11 = sub i12 %tmp_10, %bottom_cast" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 93 'sub' 'tmp_11' <Predicate = (!exitcond_flatten)> <Delay = 3.16> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.58> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 5 <SV = 4> <Delay = 5.45>
+ST_5 : Operation 94 [1/1] (0.00ns)   --->   "%tmp_V = phi i8 [ %tmp_V_3, %1 ], [ 0, %.reset ]"   --->   Operation 94 'phi' 'tmp_V' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 95 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_1_load = load i8* @wlb_w_val_V_1_1, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 95 'load' 'wlb_w_val_V_1_1_load' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 96 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_1_1_load, i8* @wlb_w_val_V_1_2, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 96 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 97 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_1_0_load, i8* @wlb_w_val_V_1_1, align 1" [../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 97 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 98 [1/1] (0.00ns)   --->   "store i8 %tmp_V, i8* @wlb_w_val_V_0_0, align 2" [../sharpen3x3/ht_video_mem.h:119->../sharpen3x3/ht_video_mem.h:428->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 98 'store' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 99 [1/1] (2.77ns)   --->   "store i8 %tmp_V, i8* %wlb_lb_val_V_0_addr, align 1" [../sharpen3x3/ht_video_mem.h:262->../sharpen3x3/ht_video_mem.h:434->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 99 'store' <Predicate = (!exitcond_flatten)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_5 : Operation 100 [1/1] (0.00ns)   --->   "%left_cast = zext i8 %wlb_w_val_V_1_1_load to i12" [../sharpen3x3/sharpen3x3.cpp:52]   --->   Operation 100 'zext' 'left_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 101 [1/1] (0.00ns)   --->   "%right_cast = zext i8 %wlb_lb_val_V_0_load to i12" [../sharpen3x3/sharpen3x3.cpp:53]   --->   Operation 101 'zext' 'right_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 102 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp_12 = sub i12 %tmp_11, %left_cast" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 102 'sub' 'tmp_12' <Predicate = (!exitcond_flatten)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.58> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 103 [1/1] (3.16ns) (root node of TernaryAdder)   --->   "%value = sub i12 %tmp_12, %right_cast" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 103 'sub' 'value' <Predicate = (!exitcond_flatten)> <Delay = 3.16> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.58> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_13 = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %value, i32 11)" [../sharpen3x3/sharpen3x3.cpp:61]   --->   Operation 104 'bitselect' 'tmp_13' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 105 [1/1] (0.00ns)   --->   "%tmp_14 = call i4 @_ssdm_op_PartSelect.i4.i12.i32.i32(i12 %value, i32 8, i32 11)" [../sharpen3x3/sharpen3x3.cpp:63]   --->   Operation 105 'partselect' 'tmp_14' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 106 [1/1] (1.21ns)   --->   "%icmp = icmp sgt i4 %tmp_14, 0" [../sharpen3x3/sharpen3x3.cpp:63]   --->   Operation 106 'icmp' 'icmp' <Predicate = (!exitcond_flatten)> <Delay = 1.21> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 107 [1/1] (0.00ns) (grouped into LUT with out node tmp_V_2)   --->   "%tmp_15 = trunc i12 %value to i8" [../sharpen3x3/sharpen3x3.cpp:58]   --->   Operation 107 'trunc' 'tmp_15' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_5 : Operation 108 [1/1] (0.00ns) (grouped into LUT with out node tmp_V_2)   --->   "%not_tmp_s = xor i1 %tmp_13, true" [../sharpen3x3/sharpen3x3.cpp:61]   --->   Operation 108 'xor' 'not_tmp_s' <Predicate = (!exitcond_flatten)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 109 [1/1] (0.00ns) (grouped into LUT with out node tmp_V_2)   --->   "%phitmp_cast = select i1 %not_tmp_s, i8 -1, i8 0" [../sharpen3x3/sharpen3x3.cpp:61]   --->   Operation 109 'select' 'phitmp_cast' <Predicate = (!exitcond_flatten)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 110 [1/1] (0.00ns) (grouped into LUT with out node tmp_V_2)   --->   "%tmp = or i1 %tmp_13, %icmp" [../sharpen3x3/sharpen3x3.cpp:61]   --->   Operation 110 'or' 'tmp' <Predicate = (!exitcond_flatten)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 111 [1/1] (1.07ns) (out node of the LUT)   --->   "%tmp_V_2 = select i1 %tmp, i8 %phitmp_cast, i8 %tmp_15" [../sharpen3x3/sharpen3x3.cpp:61]   --->   Operation 111 'select' 'tmp_V_2' <Predicate = (!exitcond_flatten)> <Delay = 1.07> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.07> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 2.94>
+ST_6 : Operation 112 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([24 x i8]* @sharpen_row_sharpen_s)"   --->   Operation 112 'specloopname' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_6 : Operation 113 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([12 x i8]* @p_str5) nounwind" [../sharpen3x3/sharpen3x3.cpp:34]   --->   Operation 113 'specloopname' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_6 : Operation 114 [1/1] (0.00ns)   --->   "%tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str5)" [../sharpen3x3/sharpen3x3.cpp:34]   --->   Operation 114 'specregionbegin' 'tmp_6' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_6 : Operation 115 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [../sharpen3x3/sharpen3x3.cpp:35]   --->   Operation 115 'specpipeline' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_6 : Operation 116 [1/1] (2.94ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_V_V, i8 %tmp_V_2)" [../sharpen3x3/sharpen3x3.cpp:69]   --->   Operation 116 'write' <Predicate = (or_cond)> <Delay = 2.94> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.18> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 0> <FIFO>
+ST_6 : Operation 117 [1/1] (0.00ns)   --->   "br label %._crit_edge32" [../sharpen3x3/sharpen3x3.cpp:70]   --->   Operation 117 'br' <Predicate = (or_cond)> <Delay = 0.00>
+ST_6 : Operation 118 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str5, i32 %tmp_6)" [../sharpen3x3/sharpen3x3.cpp:71]   --->   Operation 118 'specregionend' 'empty' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+ST_6 : Operation 119 [1/1] (0.00ns)   --->   "br label %0" [../sharpen3x3/sharpen3x3.cpp:33]   --->   Operation 119 'br' <Predicate = (!exitcond_flatten)> <Delay = 0.00>
+
+State 7 <SV = 3> <Delay = 0.00>
+ST_7 : Operation 120 [1/1] (0.00ns)   --->   "br i1 %col_flag_1, label %mergeST, label %.new"   --->   Operation 120 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 121 [1/1] (0.00ns)   --->   "store i32 %col_assign, i32* @col, align 4" [../sharpen3x3/ht_video_mem.h:435->../sharpen3x3/sharpen3x3.cpp:46]   --->   Operation 121 'store' <Predicate = (col_flag_1)> <Delay = 0.00>
+ST_7 : Operation 122 [1/1] (0.00ns)   --->   "br label %.new"   --->   Operation 122 'br' <Predicate = (col_flag_1)> <Delay = 0.00>
+ST_7 : Operation 123 [1/1] (0.00ns)   --->   "ret void" [../sharpen3x3/sharpen3x3.cpp:73]   --->   Operation 123 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 6.73ns, clock uncertainty: 0.842ns.
+
+ <State 1>: 1.78ns
+The critical path consists of the following:
+	wire read on port 'width_V' [25]  (0 ns)
+	'add' operation ('xval', ../sharpen3x3/sharpen3x3.cpp:27) [32]  (1.78 ns)
+
+ <State 2>: 6.35ns
+The critical path consists of the following:
+	wire read on port 'height_V' [24]  (0 ns)
+	'add' operation of DSP[40] ('tmp_3', ../sharpen3x3/sharpen3x3.cpp:30) [36]  (0 ns)
+	'mul' operation of DSP[40] ('bound', ../sharpen3x3/sharpen3x3.cpp:30) [40]  (6.35 ns)
+
+ <State 3>: 5.11ns
+The critical path consists of the following:
+	'phi' operation ('row', ../sharpen3x3/sharpen3x3.cpp:33) with incoming values : ('row_mid2', ../sharpen3x3/sharpen3x3.cpp:33) [44]  (0 ns)
+	'add' operation ('row_s', ../sharpen3x3/sharpen3x3.cpp:30) [57]  (1.79 ns)
+	'icmp' operation ('tmp_5_mid1', ../sharpen3x3/sharpen3x3.cpp:67) [58]  (1.7 ns)
+	'select' operation ('tmp_5_mid2', ../sharpen3x3/sharpen3x3.cpp:67) [60]  (0.813 ns)
+	'and' operation ('or_cond', ../sharpen3x3/sharpen3x3.cpp:67) [126]  (0.8 ns)
+
+ <State 4>: 5.54ns
+The critical path consists of the following:
+	'load' operation ('wlb_lb_val_V_0_load', ../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46) on array 'wlb_lb_val_V_0' [90]  (2.77 ns)
+	'store' operation (../sharpen3x3/ht_video_mem.h:237->../sharpen3x3/ht_video_mem.h:433->../sharpen3x3/sharpen3x3.cpp:46) of variable 'wlb_lb_val_V_0_load', ../sharpen3x3/ht_video_mem.h:431->../sharpen3x3/sharpen3x3.cpp:46 on array 'wlb_lb_val_V_1' [97]  (2.77 ns)
+
+ <State 5>: 5.46ns
+The critical path consists of the following:
+	'load' operation ('wlb_w_val_V_1_1_load', ../sharpen3x3/ht_video_mem.h:76->../sharpen3x3/ht_video_mem.h:426->../sharpen3x3/sharpen3x3.cpp:46) on static variable 'wlb_w_val_V_1_1' [79]  (0 ns)
+	'sub' operation ('tmp_12', ../sharpen3x3/sharpen3x3.cpp:58) [115]  (0 ns)
+	'sub' operation ('value', ../sharpen3x3/sharpen3x3.cpp:58) [116]  (3.17 ns)
+	'icmp' operation ('icmp', ../sharpen3x3/sharpen3x3.cpp:63) [119]  (1.21 ns)
+	'or' operation ('tmp', ../sharpen3x3/sharpen3x3.cpp:61) [123]  (0 ns)
+	'select' operation ('tmp.V', ../sharpen3x3/sharpen3x3.cpp:61) [124]  (1.08 ns)
+
+ <State 6>: 2.95ns
+The critical path consists of the following:
+	fifo write on port 'dst_V_V' (../sharpen3x3/sharpen3x3.cpp:69) [129]  (2.95 ns)
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

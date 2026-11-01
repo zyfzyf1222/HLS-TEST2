@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName gray8_gauss2d_3x3.cpp_pre.cpp.tb.cpp

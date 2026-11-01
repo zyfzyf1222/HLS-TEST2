@@ -1,0 +1,14 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3_tb.cpp in debug mode
+   Compiling ../../../../../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp in debug mode
+   Generating csim.exe
+�?绘暟�?╅樀
+  0.0625  0.1250  0.0625
+  0.1250  0.2500  0.1250
+  0.0625  0.1250  0.0625
+鍘熷鍥綷nTotal pixels: 2073600
+Mismatch pixels: 0
+TEST PASS
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

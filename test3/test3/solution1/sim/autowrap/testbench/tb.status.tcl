@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName sharpen3x3.cpp_pre.cpp.tb.cpp

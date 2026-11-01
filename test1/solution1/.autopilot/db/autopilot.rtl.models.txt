@@ -1,0 +1,4 @@
+rgb2gray_mul_mul_bkb
+rgb2gray_mac_mulacud
+rgb2gray_mac_muladEe
+rgb2gray

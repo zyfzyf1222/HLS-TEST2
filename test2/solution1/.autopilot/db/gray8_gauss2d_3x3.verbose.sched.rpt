@@ -1,0 +1,379 @@
+
+
+================================================================
+== Vivado HLS Report for 'gray8_gauss2d_3x3'
+================================================================
+* Date:           Tue Oct 27 21:59:45 2026
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        test2
+* Solution:       solution1
+* Product family: artix7
+* Target device:  xc7a35tfgg484-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     6.921|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+----------+-----+----------+---------+
+    |     Latency    |    Interval    | Pipeline|
+    | min |    max   | min |    max   |   Type  |
+    +-----+----------+-----+----------+---------+
+    |    7|  16797697|    7|  16797697|   none  |
+    +-----+----------+-----+----------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------------+-----+----------+----------+-----------+-----------+----------+----------+
+        |                               |     Latency    | Iteration|  Initiation Interval  |   Trip   |          |
+        |           Loop Name           | min |    max   |  Latency |  achieved |   target  |   Count  | Pipelined|
+        +-------------------------------+-----+----------+----------+-----------+-----------+----------+----------+
+        |- gray8_gauss2d_3x3_label0     |    6|  16797696| 6 ~ 4101 |          -|          -| 1 ~ 4096 |    no    |
+        | + gray8_gauss2d_3x3_label0.1  |    3|      4098|         4|          1|          1| 1 ~ 4096 |    yes   |
+        +-------------------------------+-----+----------+----------+-----------+-----------+----------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 7
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 4, States = { 3 4 5 6 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond1)
+3 --> 
+	7  / (exitcond)
+	4  / (!exitcond)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	3  / true
+7 --> 
+	2  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.77>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%col_loc = alloca i32"   --->   Operation 8 'alloca' 'col_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%col_new = alloca i32"   --->   Operation 9 'alloca' 'col_new' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%col_flag = alloca i1"   --->   Operation 10 'alloca' 'col_flag' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_0_loc = alloca i8"   --->   Operation 11 'alloca' 'wlb_w_val_V_2_0_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_1_loc = alloca i8"   --->   Operation 12 'alloca' 'wlb_w_val_V_2_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_0_loc = alloca i8"   --->   Operation 13 'alloca' 'wlb_w_val_V_1_0_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_1_loc = alloca i8"   --->   Operation 14 'alloca' 'wlb_w_val_V_1_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_V = alloca i8"   --->   Operation 15 'alloca' 'tmp_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp_V_1 = alloca i8"   --->   Operation 16 'alloca' 'tmp_V_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecInterface(i8* %dst_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str38, i32 0, i32 0, [1 x i8]* @p_str39, [1 x i8]* @p_str40, [1 x i8]* @p_str41, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str42, [1 x i8]* @p_str43)"   --->   Operation 17 'specinterface' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecInterface(i8* %src_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str32, i32 0, i32 0, [1 x i8]* @p_str33, [1 x i8]* @p_str34, [1 x i8]* @p_str35, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str36, [1 x i8]* @p_str37)"   --->   Operation 18 'specinterface' 'empty_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %src_V_V), !map !122"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %dst_V_V), !map !128"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i12* %y_V), !map !132"   --->   Operation 21 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i12* %x_V), !map !136"   --->   Operation 22 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i12 %w_V), !map !140"   --->   Operation 23 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i12 %h_V), !map !146"   --->   Operation 24 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @gray8_gauss2d_3x3_st) nounwind"   --->   Operation 25 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%h_V_read = call i12 @_ssdm_op_Read.ap_auto.i12(i12 %h_V)"   --->   Operation 26 'read' 'h_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%w_V_read = call i12 @_ssdm_op_Read.ap_auto.i12(i12 %w_V)"   --->   Operation 27 'read' 'w_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_1_cast_cast = zext i12 %w_V_read to i13" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:416->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:36]   --->   Operation 28 'zext' 'tmp_1_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (1.77ns)   --->   "%tmp_2 = add i12 %w_V_read, 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:416->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:36]   --->   Operation 29 'add' 'tmp_2' <Predicate = true> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "store i12 %tmp_2, i12* @wlb_xsize_V, align 2" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:416->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:36]   --->   Operation 30 'store' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_7_cast_cast = zext i12 %h_V_read to i13" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 31 'zext' 'tmp_7_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%wlb_w_val_V_0_1_load = load i8* @wlb_w_val_V_0_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 32 'load' 'wlb_w_val_V_0_1_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%wlb_w_val_V_0_0_load = load i8* @wlb_w_val_V_0_0, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 33 'load' 'wlb_w_val_V_0_0_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_1_load = load i8* @wlb_w_val_V_1_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 34 'load' 'wlb_w_val_V_1_1_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_0_load = load i8* @wlb_w_val_V_1_0, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 35 'load' 'wlb_w_val_V_1_0_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_1_load = load i8* @wlb_w_val_V_2_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 36 'load' 'wlb_w_val_V_2_1_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_0_load = load i8* @wlb_w_val_V_2_0, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 37 'load' 'wlb_w_val_V_2_0_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%col_load = load i32* @col, align 4" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 38 'load' 'col_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (1.77ns)   --->   "%tmp_9 = add i13 %tmp_1_cast_cast, 1" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38]   --->   Operation 39 'add' 'tmp_9' <Predicate = true> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (1.77ns)   --->   "%tmp_s = add i13 %tmp_7_cast_cast, 1" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38]   --->   Operation 40 'add' 'tmp_s' <Predicate = true> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_0_1_load, i8* %tmp_V_1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 41 'store' <Predicate = true> <Delay = 1.35>
+ST_1 : Operation 42 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_0_0_load, i8* %tmp_V" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 42 'store' <Predicate = true> <Delay = 1.35>
+ST_1 : Operation 43 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_1_1_load, i8* %wlb_w_val_V_1_1_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 43 'store' <Predicate = true> <Delay = 1.35>
+ST_1 : Operation 44 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_1_0_load, i8* %wlb_w_val_V_1_0_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 44 'store' <Predicate = true> <Delay = 1.35>
+ST_1 : Operation 45 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_2_1_load, i8* %wlb_w_val_V_2_1_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 45 'store' <Predicate = true> <Delay = 1.35>
+ST_1 : Operation 46 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_2_0_load, i8* %wlb_w_val_V_2_0_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 46 'store' <Predicate = true> <Delay = 1.35>
+ST_1 : Operation 47 [1/1] (1.35ns)   --->   "store i1 false, i1* %col_flag"   --->   Operation 47 'store' <Predicate = true> <Delay = 1.35>
+ST_1 : Operation 48 [1/1] (1.45ns)   --->   "store i32 %col_load, i32* %col_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 48 'store' <Predicate = true> <Delay = 1.45>
+ST_1 : Operation 49 [1/1] (1.35ns)   --->   "br label %0" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38]   --->   Operation 49 'br' <Predicate = true> <Delay = 1.35>
+
+State 2 <SV = 1> <Delay = 2.50>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%i_op_assign = phi i13 [ 0, %codeRepl ], [ %i, %5 ]"   --->   Operation 50 'phi' 'i_op_assign' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 4096, i64 0)"   --->   Operation 51 'speclooptripcount' 'empty_7' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (1.70ns)   --->   "%exitcond1 = icmp eq i13 %i_op_assign, %tmp_s" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38]   --->   Operation 52 'icmp' 'exitcond1' <Predicate = true> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 53 [1/1] (1.79ns)   --->   "%i = add i13 %i_op_assign, 1" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38]   --->   Operation 53 'add' 'i' <Predicate = true> <Delay = 1.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "br i1 %exitcond1, label %6, label %1" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38]   --->   Operation 54 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([25 x i8]* @p_str) nounwind" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:39]   --->   Operation 55 'specloopname' <Predicate = (!exitcond1)> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([25 x i8]* @p_str)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:39]   --->   Operation 56 'specregionbegin' 'tmp' <Predicate = (!exitcond1)> <Delay = 0.00>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%tmp_6 = trunc i13 %i_op_assign to i12" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:40]   --->   Operation 57 'trunc' 'tmp_6' <Predicate = (!exitcond1)> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i12P(i12* %y_V, i12 %tmp_6)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:40]   --->   Operation 58 'write' <Predicate = (!exitcond1)> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (1.70ns)   --->   "%tmp_3 = icmp ult i13 %i_op_assign, %tmp_7_cast_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:46]   --->   Operation 59 'icmp' 'tmp_3' <Predicate = (!exitcond1)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 60 [1/1] (1.70ns)   --->   "%tmp_4 = icmp ne i13 %i_op_assign, 0" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:65]   --->   Operation 60 'icmp' 'tmp_4' <Predicate = (!exitcond1)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 61 [1/1] (1.35ns)   --->   "br label %2" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:42]   --->   Operation 61 'br' <Predicate = (!exitcond1)> <Delay = 1.35>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%col_flag_load = load i1* %col_flag"   --->   Operation 62 'load' 'col_flag_load' <Predicate = (exitcond1)> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "br i1 %col_flag_load, label %mergeST, label %.new"   --->   Operation 63 'br' <Predicate = (exitcond1)> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%col_new_load = load i32* %col_new" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 64 'load' 'col_new_load' <Predicate = (exitcond1 & col_flag_load)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "store i32 %col_new_load, i32* @col, align 4" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 65 'store' <Predicate = (exitcond1 & col_flag_load)> <Delay = 0.00>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "br label %.new"   --->   Operation 66 'br' <Predicate = (exitcond1 & col_flag_load)> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "ret void" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:85]   --->   Operation 67 'ret' <Predicate = (exitcond1)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 6.51>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%i_op_assign_1 = phi i13 [ 0, %1 ], [ %j, %._crit_edge505 ]"   --->   Operation 68 'phi' 'i_op_assign_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 69 [1/1] (0.00ns)   --->   "%c = phi i32 [ 0, %1 ], [ %c_1, %._crit_edge505 ]" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:80]   --->   Operation 69 'phi' 'c' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 4096, i64 0)"   --->   Operation 70 'speclooptripcount' 'empty_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 71 [1/1] (1.70ns)   --->   "%exitcond = icmp eq i13 %i_op_assign_1, %tmp_9" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:42]   --->   Operation 71 'icmp' 'exitcond' <Predicate = true> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 72 [1/1] (1.79ns)   --->   "%j = add i13 %i_op_assign_1, 1" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:42]   --->   Operation 72 'add' 'j' <Predicate = true> <Delay = 1.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %5, label %3" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:42]   --->   Operation 73 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (1.70ns)   --->   "%tmp_5 = icmp ult i13 %i_op_assign_1, %tmp_1_cast_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:46]   --->   Operation 74 'icmp' 'tmp_5' <Predicate = (!exitcond)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 75 [1/1] (0.80ns)   --->   "%or_cond1 = and i1 %tmp_3, %tmp_5" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:46]   --->   Operation 75 'and' 'or_cond1' <Predicate = (!exitcond)> <Delay = 0.80> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%col_loc_load = load i32* %col_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 76 'load' 'col_loc_load' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %or_cond1, label %shift_right.exit.i, label %._crit_edge503" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:46]   --->   Operation 77 'br' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (1.35ns)   --->   "store i8 0, i8* @wlb_w_val_V_0_0, align 2" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:119->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:428->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 78 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 1.35>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%tmp_11 = sext i32 %col_loc_load to i64" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:281->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 79 'sext' 'tmp_11' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_0_addr_1 = getelementptr [2048 x i8]* @wlb_lb_val_V_0, i64 0, i64 %tmp_11" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 80 'getelementptr' 'wlb_lb_val_V_0_addr_1' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_3 : Operation 81 [2/2] (2.77ns)   --->   "%wlb_lb_val_V_0_load_1 = load i8* %wlb_lb_val_V_0_addr_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 81 'load' 'wlb_lb_val_V_0_load_1' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_1_addr_1 = getelementptr [2048 x i8]* @wlb_lb_val_V_1, i64 0, i64 %tmp_11" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 82 'getelementptr' 'wlb_lb_val_V_1_addr_1' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_3 : Operation 83 [2/2] (2.77ns)   --->   "%wlb_lb_val_V_1_load_1 = load i8* %wlb_lb_val_V_1_addr_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 83 'load' 'wlb_lb_val_V_1_load_1' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_3 : Operation 84 [1/1] (2.18ns)   --->   "%i_op_assign_3 = add nsw i32 %col_loc_load, 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 84 'add' 'i_op_assign_3' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.18> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 85 [1/1] (0.00ns)   --->   "%wlb_xsize_V_load = load i12* @wlb_xsize_V, align 2" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 85 'load' 'wlb_xsize_V_load' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%tmp_12 = zext i12 %wlb_xsize_V_load to i32" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 86 'zext' 'tmp_12' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (2.11ns)   --->   "%tmp_13 = icmp slt i32 %i_op_assign_3, %tmp_12" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 87 'icmp' 'tmp_13' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.11> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 88 [1/1] (0.77ns)   --->   "%i_op_assign_3_s = select i1 %tmp_13, i32 %i_op_assign_3, i32 0" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 88 'select' 'i_op_assign_3_s' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.77> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 89 [1/1] (1.45ns)   --->   "store i32 %i_op_assign_3_s, i32* %col_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 89 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 1.45>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "%tmp_7 = sext i32 %col_loc_load to i64" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:281->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 90 'sext' 'tmp_7' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_0_addr = getelementptr [2048 x i8]* @wlb_lb_val_V_0, i64 0, i64 %tmp_7" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 91 'getelementptr' 'wlb_lb_val_V_0_addr' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_3 : Operation 92 [2/2] (2.77ns)   --->   "%wlb_lb_val_V_0_load = load i8* %wlb_lb_val_V_0_addr, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 92 'load' 'wlb_lb_val_V_0_load' <Predicate = (!exitcond & or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_1_addr = getelementptr [2048 x i8]* @wlb_lb_val_V_1, i64 0, i64 %tmp_7" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 93 'getelementptr' 'wlb_lb_val_V_1_addr' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_3 : Operation 94 [2/2] (2.77ns)   --->   "%wlb_lb_val_V_1_load = load i8* %wlb_lb_val_V_1_addr, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 94 'load' 'wlb_lb_val_V_1_load' <Predicate = (!exitcond & or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_3 : Operation 95 [1/1] (2.18ns)   --->   "%i_op_assign_2 = add nsw i32 %col_loc_load, 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 95 'add' 'i_op_assign_2' <Predicate = (!exitcond & or_cond1)> <Delay = 2.18> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "%wlb_xsize_V_load_1 = load i12* @wlb_xsize_V, align 2" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 96 'load' 'wlb_xsize_V_load_1' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "%tmp_8 = zext i12 %wlb_xsize_V_load_1 to i32" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 97 'zext' 'tmp_8' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_3 : Operation 98 [1/1] (2.11ns)   --->   "%tmp_10 = icmp slt i32 %i_op_assign_2, %tmp_8" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 98 'icmp' 'tmp_10' <Predicate = (!exitcond & or_cond1)> <Delay = 2.11> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 99 [1/1] (0.77ns)   --->   "%i_op_assign_2_s = select i1 %tmp_10, i32 %i_op_assign_2, i32 0" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 99 'select' 'i_op_assign_2_s' <Predicate = (!exitcond & or_cond1)> <Delay = 0.77> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 100 [1/1] (1.45ns)   --->   "store i32 %i_op_assign_2_s, i32* %col_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 100 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 1.45>
+ST_3 : Operation 101 [1/1] (1.70ns)   --->   "%tmp_15 = icmp ne i13 %i_op_assign_1, 0" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:65]   --->   Operation 101 'icmp' 'tmp_15' <Predicate = (!exitcond)> <Delay = 1.70> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.70> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 102 [1/1] (0.80ns)   --->   "%or_cond = and i1 %tmp_4, %tmp_15" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:65]   --->   Operation 102 'and' 'or_cond' <Predicate = (!exitcond)> <Delay = 0.80> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 103 [1/1] (1.35ns)   --->   "br i1 %or_cond, label %4, label %._crit_edge505" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:65]   --->   Operation 103 'br' <Predicate = (!exitcond)> <Delay = 1.35>
+ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_16 = trunc i32 %c to i12" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:80]   --->   Operation 104 'trunc' 'tmp_16' <Predicate = (!exitcond & or_cond)> <Delay = 0.00>
+ST_3 : Operation 105 [1/1] (2.18ns)   --->   "%c_2 = add nsw i32 1, %c" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:80]   --->   Operation 105 'add' 'c_2' <Predicate = (!exitcond & or_cond)> <Delay = 2.18> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [1/1] (1.77ns)   --->   "%tmp_17 = add i12 1, %tmp_16" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:81]   --->   Operation 106 'add' 'tmp_17' <Predicate = (!exitcond & or_cond)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 107 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i12P(i12* %x_V, i12 %tmp_17)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:81]   --->   Operation 107 'write' <Predicate = (!exitcond & or_cond)> <Delay = 0.00>
+ST_3 : Operation 108 [1/1] (1.35ns)   --->   "br label %._crit_edge505" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:82]   --->   Operation 108 'br' <Predicate = (!exitcond & or_cond)> <Delay = 1.35>
+ST_3 : Operation 109 [1/1] (0.00ns)   --->   "%c_1 = phi i32 [ %c_2, %4 ], [ %c, %.preheader.preheader.0 ]"   --->   Operation 109 'phi' 'c_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 110 [1/1] (1.35ns)   --->   "store i1 true, i1* %col_flag"   --->   Operation 110 'store' <Predicate = (!exitcond)> <Delay = 1.35>
+
+State 4 <SV = 3> <Delay = 5.95>
+ST_4 : Operation 111 [1/1] (0.00ns)   --->   "%tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str1)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:43]   --->   Operation 111 'specregionbegin' 'tmp_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 112 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:44]   --->   Operation 112 'specpipeline' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 113 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_0_loc_s = load i8* %wlb_w_val_V_2_0_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 113 'load' 'wlb_w_val_V_2_0_loc_s' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 114 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_1_loc_s = load i8* %wlb_w_val_V_2_1_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 114 'load' 'wlb_w_val_V_2_1_loc_s' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 115 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_0_loc_s = load i8* %wlb_w_val_V_1_0_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 115 'load' 'wlb_w_val_V_1_0_loc_s' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 116 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_1_loc_s = load i8* %wlb_w_val_V_1_1_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 116 'load' 'wlb_w_val_V_1_1_loc_s' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 117 [1/1] (0.00ns)   --->   "%tmp_V_load = load i8* %tmp_V" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 117 'load' 'tmp_V_load' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 118 [1/1] (0.00ns)   --->   "%tmp_V_1_load = load i8* %tmp_V_1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 118 'load' 'tmp_V_1_load' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 119 [1/1] (0.00ns)   --->   "store i8 %tmp_V_1_load, i8* @wlb_w_val_V_0_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 119 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_4 : Operation 120 [1/1] (0.00ns)   --->   "store i8 %tmp_V_load, i8* @wlb_w_val_V_0_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 120 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_4 : Operation 121 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_1_1_loc_s, i8* @wlb_w_val_V_1_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 121 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_4 : Operation 122 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_1_0_loc_s, i8* @wlb_w_val_V_1_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 122 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_4 : Operation 123 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_2_1_loc_s, i8* @wlb_w_val_V_2_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 123 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_4 : Operation 124 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_2_0_loc_s, i8* @wlb_w_val_V_2_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 124 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_4 : Operation 125 [1/2] (2.77ns)   --->   "%wlb_lb_val_V_0_load_1 = load i8* %wlb_lb_val_V_0_addr_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 125 'load' 'wlb_lb_val_V_0_load_1' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 126 [1/1] (1.35ns)   --->   "store i8 %wlb_lb_val_V_0_load_1, i8* @wlb_w_val_V_1_0, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:119->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 126 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 1.35>
+ST_4 : Operation 127 [1/2] (2.77ns)   --->   "%wlb_lb_val_V_1_load_1 = load i8* %wlb_lb_val_V_1_addr_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 127 'load' 'wlb_lb_val_V_1_load_1' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 128 [1/1] (1.35ns)   --->   "store i8 %wlb_lb_val_V_1_load_1, i8* @wlb_w_val_V_2_0, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:119->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 128 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 1.35>
+ST_4 : Operation 129 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_2_addr_1 = getelementptr [2048 x i8]* @wlb_lb_val_V_2, i64 0, i64 %tmp_11" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:237->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:433->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 129 'getelementptr' 'wlb_lb_val_V_2_addr_1' <Predicate = (!exitcond & !or_cond1)> <Delay = 0.00>
+ST_4 : Operation 130 [1/1] (2.77ns)   --->   "store i8 %wlb_lb_val_V_1_load_1, i8* %wlb_lb_val_V_2_addr_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:237->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:433->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 130 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 131 [1/1] (2.77ns)   --->   "store i8 %wlb_lb_val_V_0_load_1, i8* %wlb_lb_val_V_1_addr_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:237->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:433->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 131 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 132 [1/1] (2.77ns)   --->   "store i8 0, i8* %wlb_lb_val_V_0_addr_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:262->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:434->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49]   --->   Operation 132 'store' <Predicate = (!exitcond & !or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 133 [1/1] (1.35ns)   --->   "br label %.preheader.preheader.0"   --->   Operation 133 'br' <Predicate = (!exitcond & !or_cond1)> <Delay = 1.35>
+ST_4 : Operation 134 [1/1] (3.18ns)   --->   "%tmp_V_2 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %src_V_V)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 134 'read' 'tmp_V_2' <Predicate = (!exitcond & or_cond1)> <Delay = 3.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.18> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 0> <FIFO>
+ST_4 : Operation 135 [1/1] (0.00ns)   --->   "store i8 %tmp_V_1_load, i8* @wlb_w_val_V_0_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 135 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_4 : Operation 136 [1/1] (0.00ns)   --->   "store i8 %tmp_V_load, i8* @wlb_w_val_V_0_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 136 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_4 : Operation 137 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_1_1_loc_s, i8* @wlb_w_val_V_1_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 137 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_4 : Operation 138 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_1_0_loc_s, i8* @wlb_w_val_V_1_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 138 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_4 : Operation 139 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_2_1_loc_s, i8* @wlb_w_val_V_2_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 139 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_4 : Operation 140 [1/1] (0.00ns)   --->   "store i8 %wlb_w_val_V_2_0_loc_s, i8* @wlb_w_val_V_2_1, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:76->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:426->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 140 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_4 : Operation 141 [1/1] (1.35ns)   --->   "store i8 %tmp_V_2, i8* @wlb_w_val_V_0_0, align 2" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:119->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:428->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 141 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 1.35>
+ST_4 : Operation 142 [1/2] (2.77ns)   --->   "%wlb_lb_val_V_0_load = load i8* %wlb_lb_val_V_0_addr, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 142 'load' 'wlb_lb_val_V_0_load' <Predicate = (!exitcond & or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 143 [1/1] (1.35ns)   --->   "store i8 %wlb_lb_val_V_0_load, i8* @wlb_w_val_V_1_0, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:119->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 143 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 1.35>
+ST_4 : Operation 144 [1/2] (2.77ns)   --->   "%wlb_lb_val_V_1_load = load i8* %wlb_lb_val_V_1_addr, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 144 'load' 'wlb_lb_val_V_1_load' <Predicate = (!exitcond & or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 145 [1/1] (1.35ns)   --->   "store i8 %wlb_lb_val_V_1_load, i8* @wlb_w_val_V_2_0, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:119->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 145 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 1.35>
+ST_4 : Operation 146 [1/1] (0.00ns)   --->   "%wlb_lb_val_V_2_addr = getelementptr [2048 x i8]* @wlb_lb_val_V_2, i64 0, i64 %tmp_7" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:237->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:433->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 146 'getelementptr' 'wlb_lb_val_V_2_addr' <Predicate = (!exitcond & or_cond1)> <Delay = 0.00>
+ST_4 : Operation 147 [1/1] (2.77ns)   --->   "store i8 %wlb_lb_val_V_1_load, i8* %wlb_lb_val_V_2_addr, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:237->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:433->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 147 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 148 [1/1] (2.77ns)   --->   "store i8 %wlb_lb_val_V_0_load, i8* %wlb_lb_val_V_1_addr, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:237->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:433->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 148 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 149 [1/1] (2.77ns)   --->   "store i8 %tmp_V_2, i8* %wlb_lb_val_V_0_addr, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:262->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:434->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 149 'store' <Predicate = (!exitcond & or_cond1)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 2048> <RAM>
+ST_4 : Operation 150 [1/1] (1.35ns)   --->   "br label %.preheader.preheader.0" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 150 'br' <Predicate = (!exitcond & or_cond1)> <Delay = 1.35>
+ST_4 : Operation 151 [1/1] (0.00ns)   --->   "%wlb_w_val_V_0_0_loc_2 = phi i8 [ %tmp_V_2, %shift_right.exit.i ], [ 0, %._crit_edge503 ]"   --->   Operation 151 'phi' 'wlb_w_val_V_0_0_loc_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 152 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_0_loc_2 = phi i8 [ %wlb_lb_val_V_0_load, %shift_right.exit.i ], [ %wlb_lb_val_V_0_load_1, %._crit_edge503 ]" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 152 'phi' 'wlb_w_val_V_1_0_loc_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 153 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_0_loc_2 = phi i8 [ %wlb_lb_val_V_1_load, %shift_right.exit.i ], [ %wlb_lb_val_V_1_load_1, %._crit_edge503 ]" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 153 'phi' 'wlb_w_val_V_2_0_loc_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 154 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_0_loc_1 = load i8* %wlb_w_val_V_2_0_loc" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 154 'load' 'wlb_w_val_V_2_0_loc_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 155 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_0_loc_1 = load i8* %wlb_w_val_V_1_0_loc" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 155 'load' 'wlb_w_val_V_1_0_loc_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_V_load_1 = load i8* %tmp_V" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 156 'load' 'tmp_V_load_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 157 [1/1] (0.00ns)   --->   "%tmp_44_1_1 = call i14 @_ssdm_op_BitConcatenate.i14.i8.i6(i8 %wlb_w_val_V_1_0_loc_1, i6 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 157 'bitconcatenate' 'tmp_44_1_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 158 [1/1] (0.00ns)   --->   "%tmp_44_1_1_cast = zext i14 %tmp_44_1_1 to i15" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 158 'zext' 'tmp_44_1_1_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 159 [1/1] (0.00ns)   --->   "%tmp_44_1_2 = call i13 @_ssdm_op_BitConcatenate.i13.i8.i5(i8 %wlb_w_val_V_1_0_loc_2, i5 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 159 'bitconcatenate' 'tmp_44_1_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 160 [1/1] (0.00ns)   --->   "%tmp_44_1_2_cast = zext i13 %tmp_44_1_2 to i15" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 160 'zext' 'tmp_44_1_2_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 161 [1/1] (1.80ns)   --->   "%tmp5 = add i15 %tmp_44_1_1_cast, %tmp_44_1_2_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 161 'add' 'tmp5' <Predicate = (!exitcond)> <Delay = 1.80> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 162 [1/1] (0.00ns)   --->   "%col_loc_load_1 = load i32* %col_loc"   --->   Operation 162 'load' 'col_loc_load_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 163 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_0_loc_2_9 = load i8* %wlb_w_val_V_2_0_loc"   --->   Operation 163 'load' 'wlb_w_val_V_2_0_loc_2_9' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 164 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_0_loc_2_10 = load i8* %wlb_w_val_V_1_0_loc"   --->   Operation 164 'load' 'wlb_w_val_V_1_0_loc_2_10' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 165 [1/1] (0.00ns)   --->   "%tmp_V_load_2 = load i8* %tmp_V" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 165 'load' 'tmp_V_load_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 166 [1/1] (0.00ns)   --->   "%empty_11 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_1)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:83]   --->   Operation 166 'specregionend' 'empty_11' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 167 [1/1] (1.35ns)   --->   "store i8 %tmp_V_load_2, i8* %tmp_V_1" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 167 'store' <Predicate = (!exitcond)> <Delay = 1.35>
+ST_4 : Operation 168 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_0_0_loc_2, i8* %tmp_V" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 168 'store' <Predicate = (!exitcond)> <Delay = 1.35>
+ST_4 : Operation 169 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_1_0_loc_2_10, i8* %wlb_w_val_V_1_1_loc"   --->   Operation 169 'store' <Predicate = (!exitcond)> <Delay = 1.35>
+ST_4 : Operation 170 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_1_0_loc_2, i8* %wlb_w_val_V_1_0_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 170 'store' <Predicate = (!exitcond)> <Delay = 1.35>
+ST_4 : Operation 171 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_2_0_loc_2_9, i8* %wlb_w_val_V_2_1_loc"   --->   Operation 171 'store' <Predicate = (!exitcond)> <Delay = 1.35>
+ST_4 : Operation 172 [1/1] (1.35ns)   --->   "store i8 %wlb_w_val_V_2_0_loc_2, i8* %wlb_w_val_V_2_0_loc" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:431->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47]   --->   Operation 172 'store' <Predicate = (!exitcond)> <Delay = 1.35>
+ST_4 : Operation 173 [1/1] (0.00ns)   --->   "store i32 %col_loc_load_1, i32* %col_new"   --->   Operation 173 'store' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_4 : Operation 174 [1/1] (0.00ns)   --->   "br label %2" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:42]   --->   Operation 174 'br' <Predicate = (!exitcond)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 6.92>
+ST_5 : Operation 175 [1/1] (0.00ns)   --->   "%wlb_w_val_V_2_2_load = load i8* @wlb_w_val_V_2_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:444->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 175 'load' 'wlb_w_val_V_2_2_load' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 176 [1/1] (0.00ns)   --->   "%tmp_14 = call i12 @_ssdm_op_BitConcatenate.i12.i8.i4(i8 %wlb_w_val_V_2_2_load, i4 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 176 'bitconcatenate' 'tmp_14' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 177 [1/1] (0.00ns)   --->   "%tmp_44_cast = zext i12 %tmp_14 to i14" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 177 'zext' 'tmp_44_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 178 [1/1] (0.00ns)   --->   "%tmp_44_0_1 = call i13 @_ssdm_op_BitConcatenate.i13.i8.i5(i8 %wlb_w_val_V_2_0_loc_1, i5 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 178 'bitconcatenate' 'tmp_44_0_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 179 [1/1] (0.00ns)   --->   "%tmp_44_0_1_cast = zext i13 %tmp_44_0_1 to i14" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 179 'zext' 'tmp_44_0_1_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 180 [1/1] (0.00ns)   --->   "%tmp_44_0_2 = call i12 @_ssdm_op_BitConcatenate.i12.i8.i4(i8 %wlb_w_val_V_2_0_loc_2, i4 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 180 'bitconcatenate' 'tmp_44_0_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 181 [1/1] (0.00ns)   --->   "%tmp_44_0_2_cast = zext i12 %tmp_44_0_2 to i14" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 181 'zext' 'tmp_44_0_2_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 182 [1/1] (0.00ns)   --->   "%wlb_w_val_V_1_2_load = load i8* @wlb_w_val_V_1_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:444->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 182 'load' 'wlb_w_val_V_1_2_load' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 183 [1/1] (0.00ns)   --->   "%tmp_44_1 = call i13 @_ssdm_op_BitConcatenate.i13.i8.i5(i8 %wlb_w_val_V_1_2_load, i5 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 183 'bitconcatenate' 'tmp_44_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 184 [1/1] (0.00ns)   --->   "%tmp_44_1_cast = zext i13 %tmp_44_1 to i14" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 184 'zext' 'tmp_44_1_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 185 [1/1] (0.00ns)   --->   "%wlb_w_val_V_0_2_load = load i8* @wlb_w_val_V_0_2, align 1" [../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:444->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 185 'load' 'wlb_w_val_V_0_2_load' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 186 [1/1] (0.00ns)   --->   "%tmp_44_2 = call i12 @_ssdm_op_BitConcatenate.i12.i8.i4(i8 %wlb_w_val_V_0_2_load, i4 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 186 'bitconcatenate' 'tmp_44_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 187 [1/1] (0.00ns)   --->   "%tmp_44_2_cast = zext i12 %tmp_44_2 to i14" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 187 'zext' 'tmp_44_2_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 188 [1/1] (0.00ns)   --->   "%tmp_44_2_1 = call i13 @_ssdm_op_BitConcatenate.i13.i8.i5(i8 %tmp_V_load_1, i5 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 188 'bitconcatenate' 'tmp_44_2_1' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 189 [1/1] (0.00ns)   --->   "%tmp_44_2_1_cast = zext i13 %tmp_44_2_1 to i14" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 189 'zext' 'tmp_44_2_1_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 190 [1/1] (0.00ns)   --->   "%tmp_44_2_2 = call i12 @_ssdm_op_BitConcatenate.i12.i8.i4(i8 %wlb_w_val_V_0_0_loc_2, i4 0)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 190 'bitconcatenate' 'tmp_44_2_2' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 191 [1/1] (0.00ns)   --->   "%tmp_44_2_2_cast = zext i12 %tmp_44_2_2 to i14" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 191 'zext' 'tmp_44_2_2_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 192 [1/1] (1.79ns)   --->   "%tmp2 = add i14 %tmp_44_0_1_cast, %tmp_44_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 192 'add' 'tmp2' <Predicate = (!exitcond)> <Delay = 1.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 193 [1/1] (0.00ns)   --->   "%tmp2_cast = zext i14 %tmp2 to i15" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 193 'zext' 'tmp2_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 194 [1/1] (1.79ns)   --->   "%tmp3 = add i14 %tmp_44_0_2_cast, %tmp_44_1_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 194 'add' 'tmp3' <Predicate = (!exitcond)> <Delay = 1.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 195 [1/1] (0.00ns)   --->   "%tmp3_cast = zext i14 %tmp3 to i15" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 195 'zext' 'tmp3_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 196 [1/1] (1.80ns)   --->   "%tmp1 = add i15 %tmp3_cast, %tmp2_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 196 'add' 'tmp1' <Predicate = (!exitcond)> <Delay = 1.80> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 197 [1/1] (0.00ns)   --->   "%tmp1_cast = zext i15 %tmp1 to i16" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 197 'zext' 'tmp1_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 198 [1/1] (0.00ns)   --->   "%tmp5_cast = zext i15 %tmp5 to i16" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 198 'zext' 'tmp5_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 199 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp7 = add i14 %tmp_44_2_1_cast, %tmp_44_2_2_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 199 'add' 'tmp7' <Predicate = (!exitcond)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.65> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 200 [1/1] (3.24ns) (root node of TernaryAdder)   --->   "%tmp6 = add i14 %tmp7, %tmp_44_2_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 200 'add' 'tmp6' <Predicate = (!exitcond)> <Delay = 3.24> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.65> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 201 [1/1] (0.00ns)   --->   "%tmp6_cast = zext i14 %tmp6 to i16" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 201 'zext' 'tmp6_cast' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_5 : Operation 202 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp4 = add i16 %tmp6_cast, %tmp5_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 202 'add' 'tmp4' <Predicate = (!exitcond)> <Delay = 0.00> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.65> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 203 [1/1] (3.31ns) (root node of TernaryAdder)   --->   "%d_V_2_2 = add i16 %tmp4, %tmp1_cast" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55]   --->   Operation 203 'add' 'd_V_2_2' <Predicate = (!exitcond)> <Delay = 3.31> <Core = "TAddSub">   --->   Core 84 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.65> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 204 [1/1] (0.00ns)   --->   "%dd_V = call i8 @_ssdm_op_PartSelect.i8.i16.i32.i32(i16 %d_V_2_2, i32 8, i32 15)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:63]   --->   Operation 204 'partselect' 'dd_V' <Predicate = (!exitcond)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 3.18>
+ST_6 : Operation 205 [1/1] (3.18ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_V_V, i8 %dd_V)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:79]   --->   Operation 205 'write' <Predicate = (!exitcond & or_cond)> <Delay = 3.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.18> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 0> <FIFO>
+
+State 7 <SV = 3> <Delay = 0.00>
+ST_7 : Operation 206 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecRegionEnd([25 x i8]* @p_str, i32 %tmp)" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:84]   --->   Operation 206 'specregionend' 'empty_12' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 207 [1/1] (0.00ns)   --->   "br label %0" [../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38]   --->   Operation 207 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.78ns
+The critical path consists of the following:
+	wire read on port 'h_V' [39]  (0 ns)
+	'add' operation ('tmp_s', ../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38) [53]  (1.78 ns)
+
+ <State 2>: 2.5ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond1', ../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:38) [66]  (1.7 ns)
+	blocking operation 0.8 ns on control path)
+
+ <State 3>: 6.52ns
+The critical path consists of the following:
+	'load' operation ('col_loc_load', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47) on local variable 'col' [89]  (0 ns)
+	'add' operation ('i_op', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) [116]  (2.18 ns)
+	'icmp' operation ('tmp_13', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) [119]  (2.11 ns)
+	'select' operation ('i_op_assign_3_s', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) [120]  (0.773 ns)
+	'store' operation (../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) of variable 'i_op_assign_3_s', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49 on local variable 'col' [121]  (1.45 ns)
+
+ <State 4>: 5.96ns
+The critical path consists of the following:
+	fifo read on port 'src_V_V' (../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47) [124]  (3.19 ns)
+	'store' operation (../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:262->../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:434->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47) of variable 'tmp.V', ../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47 on array 'wlb_lb_val_V_0' [142]  (2.77 ns)
+
+ <State 5>: 6.92ns
+The critical path consists of the following:
+	'load' operation ('wlb_w_val_V_2_2_load', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:444->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55) on static variable 'wlb_w_val_V_2_2' [157]  (0 ns)
+	'add' operation ('tmp2', ../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55) [178]  (1.79 ns)
+	'add' operation ('tmp1', ../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55) [182]  (1.81 ns)
+	'add' operation ('d_V_2_2', ../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:55) [190]  (3.32 ns)
+
+ <State 6>: 3.19ns
+The critical path consists of the following:
+	fifo write on port 'dst_V_V' (../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:79) [196]  (3.19 ns)
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

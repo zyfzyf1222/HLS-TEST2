@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="ERROR: [IMPL 213-28] Failed to generate IP.&#xD;&#xA;command 'ap_source' returned error code&#xD;&#xA;    while executing&#xD;&#xA;&quot;source E:/FPGA-project/test2/solution_1080p60/export.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main E:/FPGA-project/test2/solution_1080p60/export.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="test2" solutionName="solution_1080p60" date="2026-10-28T14:33:17.151+0800"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_2' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.714+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_2' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.711+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_2' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.708+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'col' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.706+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_0' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.703+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_1' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.699+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_0' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.696+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_1' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.689+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_0' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.686+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_1' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.684+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_xsize_V' is power-on initialization." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.681+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path in module 'gray8_gauss2d_3x3' consists of the following:&#xD;&#xA;&#x9;'load' operation ('col_loc_load', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:47) on local variable 'col' [89]  (0 ns)&#xD;&#xA;&#x9;'add' operation ('i_op', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:435->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) [116]  (2.18 ns)&#xD;&#xA;&#x9;'icmp' operation ('tmp_13', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) [119]  (2.11 ns)&#xD;&#xA;&#x9;'select' operation ('i_op_assign_3_s', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) [120]  (0.773 ns)&#xD;&#xA;&#x9;'store' operation (../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49) of variable 'i_op_assign_3_s', ../gauss_src/gray8_gauss2d_3x3/ht_video_mem.h:436->../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:49 on local variable 'col' [121]  (1.45 ns)" projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.508+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (6.51575ns) exceeds the target (target clock period: 6.734ns, clock uncertainty: 0.84175ns, effective delay budget: 5.89225ns)." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.504+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-70] Cannot meet target clock period from 'add' operation ('i_op') to 'store' operation of variable 'i_op_assign_3_s' on local variable 'col' (combination delay: 6.51575 ns) to honor II or Latency constraint in region 'gray8_gauss2d_3x3_label0.1'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.501+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.2'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.377+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.1'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.336+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.0'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.332+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.1'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.330+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.2'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.327+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.xsize.V'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.326+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.2'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.324+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.2'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.321+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.1'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.320+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.1'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.317+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.0'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.314+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.0'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.311+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.0'." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.310+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-542] Cannot flatten a loop nest 'gray8_gauss2d_3x3_label0' (../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:39:3) in function 'gray8_gauss2d_3x3' : &#xD;&#xA;&#xD;&#xA;the outer loop is not a perfect loop." projectName="test2" solutionName="solution_1080p60" date="2026-10-28T10:05:42.307+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_2' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.231+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_2' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.228+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_2' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.224+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'col' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.224+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_0' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.221+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_1' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.219+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_0' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.218+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_1' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.216+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_0' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.213+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_1' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.212+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_xsize_V' is power-on initialization." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:45.209+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.1'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.948+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.xsize.V'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.898+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.0'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.895+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.1'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.893+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.2'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.890+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.2'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.887+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.2'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.884+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.2'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.881+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.1'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.878+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.0'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.875+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.0'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.873+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.0'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.870+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.1'." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.869+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-542] Cannot flatten a loop nest 'gray8_gauss2d_3x3_label0' (../gauss_src/gray8_gauss2d_3x3/gray8_gauss2d_3x3.cpp:39:3) in function 'gray8_gauss2d_3x3' : &#xD;&#xA;&#xD;&#xA;the outer loop is not a perfect loop." projectName="test2" solutionName="solution1" date="2026-10-27T21:59:44.866+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

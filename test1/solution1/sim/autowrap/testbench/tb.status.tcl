@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName rgb2gray.cpp_pre.cpp.tb.cpp

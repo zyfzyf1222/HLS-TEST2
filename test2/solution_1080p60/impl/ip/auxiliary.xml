@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="gray8_gauss2d_3x3" xd:componentRef="gray8_gauss2d_3x3" xd:initiationInterval="16801794" xd:clockPeriod="6.734" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="src" xd:originalName="src" xd:direction="in" xd:interfaceRef="src_V_V" xd:busTypeRef="acc_fifo" xd:dataWidth="8"/>
+  <xd:arg xd:name="dst" xd:originalName="dst" xd:direction="out" xd:interfaceRef="dst_V_V" xd:busTypeRef="acc_fifo" xd:firstOut="6" xd:dataWidth="8"/>
+  <xd:arg xd:name="y" xd:originalName="y" xd:direction="out" xd:interfaceRef="y_V" xd:busTypeRef="register" xd:handshakeRef="ap_vld" xd:dataWidth="12" xd:firstOut="1"/>
+  <xd:arg xd:name="x" xd:originalName="x" xd:direction="out" xd:interfaceRef="x_V" xd:busTypeRef="register" xd:handshakeRef="ap_vld" xd:dataWidth="12" xd:firstOut="2"/>
+  <xd:arg xd:name="w" xd:originalName="w" xd:direction="in" xd:interfaceRef="w_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="12" xd:firstOut="2"/>
+  <xd:arg xd:name="h" xd:originalName="h" xd:direction="in" xd:interfaceRef="h_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="12" xd:firstOut="2"/>
+  <xd:latencyEstimates xd:best-case="8" xd:worst-case="16801793" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="978" xd:FF="783" xd:BRAM="3" xd:DSP="0"/>
+</xd:acceleratorMap>

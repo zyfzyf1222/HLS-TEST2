@@ -1,0 +1,9 @@
+sv work "glbl.v"
+sv xil_defaultlib "AESL_autofifo_dst_V_V.v"
+sv xil_defaultlib "AESL_autofifo_src_V_V.v"
+sv xil_defaultlib "sharpen3x3.autotb.v"
+sv xil_defaultlib "sharpen3x3.v"
+sv xil_defaultlib "sharpen3x3_am_addeOg.v"
+sv xil_defaultlib "sharpen3x3_wlb_lbbkb.v"
+sv xil_defaultlib "sharpen3x3_wlb_lbdEe.v"
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="sharpen3x3.cpp" path="E:\FPGA-project\sharpen3x3\sharpen3x3.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="sharpen3x3_tb.cpp" path="E:\FPGA-project\sharpen3x3\sharpen3x3_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

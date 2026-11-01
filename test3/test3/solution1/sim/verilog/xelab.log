@@ -1,0 +1,41 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "F:/vivado/Vivado/2018.3/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: F:/vivado/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_sharpen3x3_top glbl -prj sharpen3x3.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile F:/vivado/Vivado/2018.3/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s sharpen3x3 
+Multi-threading is on. Using 26 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/AESL_autofifo_dst_V_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_dst_V_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/AESL_autofifo_src_V_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_src_V_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/sharpen3x3.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_sharpen3x3_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/sharpen3x3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sharpen3x3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/sharpen3x3_am_addeOg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sharpen3x3_am_addeOg_DSP48_0
+INFO: [VRFC 10-311] analyzing module sharpen3x3_am_addeOg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/sharpen3x3_wlb_lbbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sharpen3x3_wlb_lbbkb_ram
+INFO: [VRFC 10-311] analyzing module sharpen3x3_wlb_lbbkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/FPGA-project/test3/test3/solution1/sim/verilog/sharpen3x3_wlb_lbdEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sharpen3x3_wlb_lbdEe_ram
+INFO: [VRFC 10-311] analyzing module sharpen3x3_wlb_lbdEe
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.sharpen3x3_wlb_lbbkb_ram
+Compiling module xil_defaultlib.sharpen3x3_wlb_lbbkb(DataWidth=8...
+Compiling module xil_defaultlib.sharpen3x3_wlb_lbdEe_ram
+Compiling module xil_defaultlib.sharpen3x3_wlb_lbdEe(DataWidth=8...
+Compiling module xil_defaultlib.sharpen3x3_am_addeOg_DSP48_0
+Compiling module xil_defaultlib.sharpen3x3_am_addeOg(ID=1,NUM_ST...
+Compiling module xil_defaultlib.sharpen3x3
+Compiling module xil_defaultlib.AESL_autofifo_src_V_V
+Compiling module xil_defaultlib.AESL_autofifo_dst_V_V
+Compiling module xil_defaultlib.apatb_sharpen3x3_top
+Compiling module work.glbl
+Built simulation snapshot sharpen3x3

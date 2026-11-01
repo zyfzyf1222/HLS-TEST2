@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_0' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:29.026+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_2_1' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:29.021+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_0' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:29.017+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_1_1' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:29.013+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_0' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:29.009+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_w_val_V_0_1' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:29.001+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'col' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.996+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'wlb_xsize_V' is power-on initialization." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.990+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path in module 'sharpen3x3' consists of the following:&#xD;&#xA;&#x9;wire read on port 'height_V' [24]  (0 ns)&#xD;&#xA;&#x9;'add' operation of DSP[40] ('tmp_3', ../sharpen3x3/sharpen3x3.cpp:30) [36]  (0 ns)&#xD;&#xA;&#x9;'mul' operation of DSP[40] ('bound', ../sharpen3x3/sharpen3x3.cpp:30) [40]  (6.35 ns)" projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.716+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (6.35ns) exceeds the target (target clock period: 6.734ns, clock uncertainty: 0.842ns, effective delay budget: 5.892ns)." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.708+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.xsize.V'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.539+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.0'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.531+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.2'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.520+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.1'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.514+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.1'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.508+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.1'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.500+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.2.0'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.494+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.1'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.485+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.0'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.479+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.1.2'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.471+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.2'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.466+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.lb.val.V.2'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.457+0800" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'wlb.w.val.V.0.0'." projectName="test3" solutionName="solution1" date="2026-10-29T17:40:28.451+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="rgb2gray.cpp" path="E:\FPGA-project\FPGA_HLS_Gray_Sharpen_1080p\rgb2gray\rgb2gray.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="rgb2gray_tb.cpp" path="E:\FPGA-project\FPGA_HLS_Gray_Sharpen_1080p\rgb2gray\rgb2gray_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
